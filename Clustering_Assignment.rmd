@@ -1,0 +1,230 @@
+---
+title: "Clustering_Assignment"
+author: "Kaylar Fullington"
+date: 02/27/2022
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+cluster_df <- read.csv("data/clustering-data.csv")
+
+library(ggplot2)
+
+cluster_scatter <- ggplot(cluster_df, aes(x = x, y = y)) + geom_point()
+cluster_scatter
+
+```
+
+```{r}
+library(class)
+library(factoextra)
+
+cluster_kmeans_2 <- kmeans(scale(cluster_df), 2)
+
+cluster_2_plot <- fviz_cluster(cluster_kmeans_2, data = cluster_df, geom = "point", ggtheme = theme_bw())
+cluster_2_plot
+```
+
+```{r}
+# clusterDist <- function(p1,p2) sqrt((p1[,1] - p2[,1])^2 + (p1[,2] - p2[,2]^2))
+# cluster2_dist <- clusterDist(cluster_df[cluster_kmeans_2$cluster == 2], cluster_kmeans_2$centers[,2,drop = FALSE])
+# Error in `[.data.frame`(cluster_df, cluster_kmeans_2$cluster == 2) : undefined columns selected
+
+# distance <- map_dbl(2:12, function(k){ model <- kmeans(cluster_df, centers = k) model$distance})
+# Error: unexpected symbol in "distance <- map_dbl(2:12, function(k){ model <- kmeans(cluster_df, centers = k) model"
+
+distance_2 <- sqrt(rowSums(cluster_df - fitted(cluster_kmeans_2))^2)
+av_dist_2 <- mean(distance_2)
+
+```
+
+```{r}
+library(class)
+library(factoextra)
+
+cluster_kmeans_3 <- kmeans(scale(cluster_df), 3, nstart = 25)
+
+cluster_3_plot <- fviz_cluster(cluster_kmeans_3, data = cluster_df, geom = "point", ggtheme = theme_bw())
+cluster_3_plot
+```
+
+```{r}
+distance_3 <- sqrt(rowSums(cluster_df - fitted(cluster_kmeans_3))^2)
+av_dist_3 <- mean(distance_3)
+
+```
+
+```{r}
+library(class)
+library(factoextra)
+
+cluster_kmeans_4 <- kmeans(scale(cluster_df), 4, nstart = 25)
+
+cluster_4_plot <- fviz_cluster(cluster_kmeans_4, data = cluster_df, geom = "point", ggtheme = theme_bw())
+cluster_4_plot
+```
+
+```{r}
+distance_4 <- sqrt(rowSums(cluster_df - fitted(cluster_kmeans_4))^2)
+av_dist_4 <- mean(distance_4)
+
+```
+
+
+```{r}
+library(class)
+library(factoextra)
+
+cluster_kmeans_5 <- kmeans(scale(cluster_df), 5, nstart = 25)
+
+cluster_5_plot <- fviz_cluster(cluster_kmeans_5, data = cluster_df, geom = "point", ggtheme = theme_bw())
+cluster_5_plot
+```
+
+```{r}
+
+distance_5 <- sqrt(rowSums(cluster_df - fitted(cluster_kmeans_5))^2)
+av_dist_5 <- mean(distance_5)
+
+```
+
+```{r}
+library(class)
+library(factoextra)
+
+cluster_kmeans_6 <- kmeans(scale(cluster_df), 6, nstart = 25)
+
+cluster_6_plot <- fviz_cluster(cluster_kmeans_6, data = cluster_df, geom = "point", ggtheme = theme_bw())
+cluster_6_plot
+```
+
+```{r}
+distance_6 <- sqrt(rowSums(cluster_df - fitted(cluster_kmeans_6))^2)
+av_dist_6 <- mean(distance_6)
+
+```
+
+```{r}
+library(class)
+library(factoextra)
+
+cluster_kmeans_7 <- kmeans(scale(cluster_df), 7, nstart = 25)
+
+cluster_7_plot <- fviz_cluster(cluster_kmeans_7, data = cluster_df, geom = "point", ggtheme = theme_bw())
+cluster_7_plot
+```
+
+```{r}
+
+distance_7 <- sqrt(rowSums(cluster_df - fitted(cluster_kmeans_7))^2)
+av_dist_7 <- mean(distance_7)
+
+```
+
+```{r}
+library(class)
+library(factoextra)
+
+cluster_kmeans_8 <- kmeans(scale(cluster_df), 8, nstart = 25)
+
+cluster_8_plot <- fviz_cluster(cluster_kmeans_8, data = cluster_df, geom = "point", ggtheme = theme_bw())
+cluster_8_plot
+```
+
+```{r}
+
+distance_8 <- sqrt(rowSums(cluster_df - fitted(cluster_kmeans_8))^2)
+av_dist_8 <- mean(distance_8)
+
+```
+
+```{r}
+library(class)
+library(factoextra)
+
+cluster_kmeans_9 <- kmeans(scale(cluster_df), 9, nstart = 25)
+
+cluster_9_plot <- fviz_cluster(cluster_kmeans_9, data = cluster_df, geom = "point", ggtheme = theme_bw())
+cluster_9_plot
+```
+
+```{r}
+
+distance_9 <- sqrt(rowSums(cluster_df - fitted(cluster_kmeans_9))^2)
+av_dist_9 <- mean(distance_9)
+
+```
+
+```{r}
+library(class)
+library(factoextra)
+
+cluster_kmeans_10 <- kmeans(scale(cluster_df), 10, nstart = 25)
+
+cluster_10_plot <- fviz_cluster(cluster_kmeans_10, data = cluster_df, geom = "point", ggtheme = theme_bw())
+cluster_10_plot
+```
+
+```{r}
+
+distance_10 <- sqrt(rowSums(cluster_df - fitted(cluster_kmeans_10))^2)
+av_dist_10 <- mean(distance_10)
+
+```
+
+```{r}
+library(class)
+library(factoextra)
+
+cluster_kmeans_11 <- kmeans(scale(cluster_df), 11, nstart = 25)
+
+cluster_11_plot <- fviz_cluster(cluster_kmeans_11, data = cluster_df, geom = "point", ggtheme = theme_bw())
+cluster_11_plot
+```
+
+```{r}
+
+distance_11 <- sqrt(rowSums(cluster_df - fitted(cluster_kmeans_11))^2)
+av_dist_11 <- mean(distance_11)
+
+```
+
+```{r}
+library(class)
+library(factoextra)
+
+cluster_kmeans_12 <- kmeans(scale(cluster_df), 12, nstart = 25)
+
+cluster_12_plot <- fviz_cluster(cluster_kmeans_12, data = cluster_df, geom = "point", ggtheme = theme_bw())
+cluster_12_plot
+```
+
+```{r}
+
+distance_12 <- sqrt(rowSums(cluster_df - fitted(cluster_kmeans_12))^2)
+av_dist_12 <- mean(distance_12)
+
+```
+
+
+```{r}
+library(useful)
+cluster_best <- FitKMeans(cluster_df, max.clusters = 12, nstart = 12)
+cluster_best
+
+PlotHartigan(cluster_best)
+
+```
+
+
+# Final Thoughts
+
+I had to do a lot of messing around with this data and I finally hit a wall when I realized the average distances were all the same for every K-value. I am unsure what I did incorrectly that made this happen.
+
+My clusters all seemed to come out right. At the bottom is Hartigan's method which in my understanding indicates similar to manually plotting out all these k-values. One can look at the bend to determine how many k-values would be best to use.
+
+
